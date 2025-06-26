@@ -1,0 +1,7 @@
+fastmcp
+pdfminer.six
+markdownify
+readabilipy
+httpx
+pydantic
+python-dotenv
