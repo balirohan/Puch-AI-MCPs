@@ -16,7 +16,7 @@ A smart job evaluator that:
 - Provides a suitability score
 - Suggests improvements and learning roadmaps
 
-### 2. `Meetings with Puch AI/`
+### 2. [Meetings with Puch AI](./Meetings%20with%20Puch%20AI/)
 Automation tools to:
 - Create, List, Update & Delete Meetings from your Google Calendar.
   
