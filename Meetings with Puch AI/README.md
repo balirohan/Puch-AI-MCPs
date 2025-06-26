@@ -179,28 +179,13 @@ Example Commands:
 
 ### Screenshots
 
-**My Google Calendar**
-<img width="1470" alt="Screenshot 2025-06-20 at 10 50 39 AM" src="https://github.com/user-attachments/assets/0efd7a4e-e0ca-45e2-a8b1-96e18c180fc1" />
-
 **Puch AI**
-<img width="969" alt="Screenshot 2025-06-20 at 11 19 36 AM" src="https://github.com/user-attachments/assets/a8068748-aef2-4c25-8223-aedcce219913" />
+![IMG_3604](https://github.com/user-attachments/assets/21b582c1-346b-4d72-82ba-4a5548c4fdde)
 
-<img width="962" alt="Screenshot 2025-06-20 at 11 30 37 AM" src="https://github.com/user-attachments/assets/90a5528d-1b6c-4155-a4ac-280a47e506b7" />
-
-
-**Updated Calendar**
-
-<img width="1470" alt="Screenshot 2025-06-20 at 11 26 21 AM" src="https://github.com/user-attachments/assets/ebac17ce-dd34-4cec-be82-fe434a49abfc" />
-
-**Puch AI**
-<img width="970" alt="Screenshot 2025-06-20 at 11 39 48 AM" src="https://github.com/user-attachments/assets/4e656ee1-0ce7-4e74-966a-12b2e49b1f46" />
-
-<img width="973" alt="Screenshot 2025-06-20 at 11 39 58 AM" src="https://github.com/user-attachments/assets/e867e744-cf39-4766-bfba-d68f769194ce" />
-
-**Final Calendar**
-
-<img width="1470" alt="Screenshot 2025-06-20 at 11 40 04 AM" src="https://github.com/user-attachments/assets/9f25c8c7-9d33-48da-b744-580028998346" />
-
+**User Authorization**
+![IMG_3605](https://github.com/user-attachments/assets/0a131c0d-e326-4022-bbd4-3caf0b439a38)
+![IMG_3606](https://github.com/user-attachments/assets/e885d4b4-bb57-4abe-8118-70ea8d426095)
+![IMG_3607](https://github.com/user-attachments/assets/68759fda-e07b-4e25-8de3-f88c50b0e355)
 
 
 
