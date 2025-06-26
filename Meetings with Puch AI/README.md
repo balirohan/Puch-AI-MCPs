@@ -1,6 +1,10 @@
 # Google Calendar NLP Assistant via Puch AI
 
-This project provides a self-hosted MCP (Modular Cognitive Processor) server that connects your Google Calendar to Puch AI. It allows you to manage your calendar—creating, reading, updating, and deleting events—using natural language commands sent from WhatsApp.
+This project provides a self-hosted MCP (Model Context Protocol) server that connects your Google Calendar to Puch AI. It allows you to manage your calendar—creating, reading, updating, and deleting events—using natural language commands sent from WhatsApp.
+
+### What is MCP?
+
+**Model Context Protocol (MCP)** is a standardized method for managing and delivering contextual information to AI models. It structures and organizes elements such as system instructions, user preferences, memory, and conversation history to ensure consistent and personalized model behavior across interactions. By using MCP, developers can maintain richer, more relevant, and adaptive conversations with AI systems.
 
 ## Features
 - **Create Events:** "Schedule a meeting for tomorrow at 3 PM titled 'Project Brainstorm'."
@@ -21,7 +25,7 @@ Follow these steps carefully to get your server running.
 First, get the project code onto your local machine.
 
 ```
-git clone https://github.com/balirohan/Python/tree/main/Advanced%20Projects/Meetings%20with%20Puch%20AI
+git clone https://github.com/balirohan/Puch-AI-MCPs.git
 cd Meetings\ with\ Puch\ AI/
 ```
 
@@ -57,32 +61,50 @@ It's crucial to use a virtual environment to manage dependencies and avoid confl
    pip install -r requirements.txt
    ```
 
-### Step 3: Configure Google Cloud & OAuth 2.0
+### ✅ Step 3: Configure Google Cloud & Service Account (Web App)
 
-This is the most critical section. You need to authorize your application to access your Google Calendar.
+To allow your web application to access Google Calendar **programmatically** using a **Service Account**, follow these steps:
 
-1. Go to the **Google Cloud Console** and create a new project (or select an existing one).
+---
 
-2. **Enable the Google Calendar API:**
+#### 1. Create a Project
 
-  - In the navigation menu, go to **APIs & Services > Library.**
-  - Search for "Google Calendar API" and click **Enable.**
-3. **Configure the OAuth Consent Screen:**
+- Go to the [Google Cloud Console](https://console.cloud.google.com/).
+- Create a **new project** or select an **existing one**.
 
-  - Go to **APIs & Services > OAuth consent screen.**
-  - Choose User Type: **External.**
-  - Fill in the required app information (app name, user support email).
-  - On the "Test users" page, click **+ ADD USERS&**. Add the Google email address you will use to log in. **This is a mandatory step, otherwise Google will block your login attempt.**
-  - Save and continue.
+---
 
-4. **Create OAuth 2.0 Credentials:**
+#### 2. Enable the Google Calendar API
 
-  - Go to **APIs & Services > Credentials.**
-  - Click **+ CREATE CREDENTIALS** and select **OAuth client ID.**
-  - For the Application type, select **Desktop app.**
-  - Give it a name (e.g., "Calendar MCP Client").
-  - Click **Create**. A pop-up will appear. Click **DOWNLOAD JSON.**
-  - Rename the downloaded file to 'credentials.json' and place it in the root of your project directory.
+- Navigate to `APIs & Services > Library`.
+- Search for **Google Calendar API**.
+- Click **Enable**.
+
+---
+
+#### 3. Create a Service Account
+
+- Go to `IAM & Admin > Service Accounts`.
+- Click **+ CREATE SERVICE ACCOUNT**.
+- Enter a name like `calendar-access-bot`.
+- Click **Create and Continue**.
+- (Optional) Assign roles if needed (you can skip this).
+- Click **Done**.
+
+---
+
+#### 4. Generate and Download the Service Account Key
+
+- Find the newly created service account in the list.
+- Click on the **three dots** (⋮) > **Manage keys**.
+- Click **Add Key > Create new key**.
+- Choose **JSON** format.
+- Click **Create** – the file will download automatically.
+- Rename the file to `service_account.json` and move it to your project's root directory.
+
+---
+
+✅ Your service account now has access to the calendar and can be used by your app to read/write events.
 
 
 ### Step 4: Configure Local Environment Variables
@@ -96,6 +118,7 @@ You need to provide the secrets for your MCP server.
    ```
    PUCH_TOKEN="your_secret_puch_token_here"
    MY_PHONE_NUMBER="your_phone_number_for_validation" (e.g. "9188xxxxxxxx")
+   SERVICE_ACCOUNT_EMAIL=<your_service_account_email>
    ```
 
 ### Step 5: First-Time Authentication
@@ -105,31 +128,24 @@ The very first time you run the server, you must grant it access to your Google 
 1. **Run the application:**
 
    ```
-   python meetings.py
+   python multi_meetings.py
+   python onboarding.py
    ```
 
-2. Your web browser should automatically open to a Google login page.
+2. Open your web browser and go to the following address: ```http://127.0.0.1:8000```
 
-3. Log in with the same Google account you added as a "Test user".
+3. Log in with the same Google account you added as a "Test user". (this step is required for an app in testing, but not for an app in production)
 
 4. You will see a screen asking for permission to "View and edit events on all your calendars". Click **Allow**.
 
-5. After you grant permission, a 'token.json' file will be created in your project directory. This file stores your authorization, so you won't have to log in again.
+5. After you grant permission you will be able to manage your Google Calendar using Puch AI from WhatsApp.
 
 
-### Step 6: Run the Server and Connect to Puch AI
+### Step 6: Connect to Puch AI
 
 Now your server is fully configured and ready for use.
 
-1. **Start the server:**
-
-   ```
-   python meetings.py
-   ```
-   
-You will see the message: Starting MCP server on http://0.0.0.0:8085
-
-2. Expose your local server to the internet:
+1. Expose your local server to the internet:
 
   The server is running on your local machine, but Puch AI needs a public URL to reach it. Use a tool like ngrok for this. 
 
