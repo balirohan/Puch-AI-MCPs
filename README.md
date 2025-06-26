@@ -9,7 +9,7 @@ The **Model Context Protocol (MCP)** by Puch AI allows developers to rapidly pro
 
 ## 📂 Projects Included
 
-### 1. `jobify_with_PuchAI/`
+### 1. [jobify_with_PuchAI](./jobify_with_PuchAI/)
 A smart job evaluator that:
 - Analyzes job descriptions
 - Matches them with resumes
